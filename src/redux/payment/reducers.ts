@@ -16,10 +16,11 @@ const initialState: State = {
 };
 
 // Reducer function
-export default function methodReducers(
+export default function paymentReducers(
   state: State = initialState,
   action: Action
 ): State {
+  console.log("payment reducer")
   switch (action.type) {
     case actions.CLEAN_UP:
       return initialState;

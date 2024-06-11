@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import accountReducer from "./account/reducers.ts";
+import paymentReducers from "./payment/reducers";
 
 
 const rootReducer = combineReducers({
-    account: accountReducer,
+    payment: paymentReducers,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

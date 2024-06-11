@@ -1,14 +1,12 @@
-import { legacy_createStore as createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
-import { composeWithDevTools } from "@redux-devtools/extension";
+import { legacy_createStore as createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from "./rootReducer";
 import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
-
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  applyMiddleware(sagaMiddleware)
 );
 
 sagaMiddleware.run(rootSaga);

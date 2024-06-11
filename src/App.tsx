@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import ECommerce from './pages/Dashboard/ECommerce';
 import FormElements from './pages/Form/FormElements';
 import FormLayout from './pages/Form/FormLayout';
+import actions from './redux/payment/actions';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);    
   }, [pathname]);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
+    dispatch({ type: actions.GET_PAYMENT_DATA });
   }, []);
 
   return loading ? (
